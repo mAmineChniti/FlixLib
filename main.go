@@ -14,8 +14,12 @@ func main() {
 	componentsDir := "components/"
 	port := 3500
 
-	// Define a custom logger with a prefix
 	logger := log.New(os.Stdout, "HTTP Server: ", log.LstdFlags)
+
+	http.HandleFunc("/status", func(w http.ResponseWriter, r *http.Request) {
+		logger.Printf("Working Fine!\n")
+		w.WriteHeader(http.StatusOK)
+	})
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		urlPath := r.URL.Path
