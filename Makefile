@@ -8,8 +8,8 @@ build-css:
 
 run-server:
 	@echo "Running server"
-	go run .
+	air
 
 run-silent:
 	@echo "Running server"
-	nohup go run . &
+	air &
