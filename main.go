@@ -60,7 +60,7 @@ func main() {
 		tmpl := template.Must(template.ParseFiles(filePath))
 		return tmpl.Execute(c.Response(), nil)
 	})
-
+	e.Static("/styles", "styles/")
 	logger.Printf("Server started on port %s\n", port)
 	e.Logger.Fatal(e.Start(port))
 }

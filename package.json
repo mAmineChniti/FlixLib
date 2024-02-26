@@ -1,0 +1,11 @@
+{
+  "name": "flixlib",
+  "version": "1.0.0",
+  "author": "",
+  "description": "This project is an ongoing demo for learning Go and HTMX by creating a watchlist library for movies and TV shows. We are building a simple application to understand the basics and advanced concepts of both technologies.",
+  "keywords": [],
+  "license": "ISC",
+  "scripts": {
+    "build:css": "bunx tailwindcss -i ./styles/input.css -o ./styles/output.css"
+  }
+}

@@ -16,7 +16,12 @@ jobs:
     steps:
     - name: Setup Checkout
       uses: actions/checkout@v4
-    
+
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+
     - name: Setup Go
       uses: actions/setup-go@v2
       with:
@@ -25,11 +30,11 @@ jobs:
     - name: Vet
       run: |
         go vet .
-        
-    - name: Run Server
+
+    - name: Run Server Silently
       run: |
-        nohup go run . &
-      
+        make build-run-silent
+
     - name: Send Request
       run: |
         API_URL="http://127.0.0.1:3500/status"
