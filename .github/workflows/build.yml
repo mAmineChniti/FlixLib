@@ -1,4 +1,4 @@
-name: Build and Lint
+name: Build, Vet, Run and Test
 
 on:
   push:
