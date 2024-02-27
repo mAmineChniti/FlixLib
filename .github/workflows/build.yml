@@ -46,5 +46,5 @@ jobs:
             echo "API is deployed and responding with status code 200 (OK)"
         else
             echo "Error: API deployment failed. Received status code: $STATUS_CODE"
-             exit 1
+            exit 1
         fi
