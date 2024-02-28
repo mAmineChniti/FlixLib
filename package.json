@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build:css": "bunx tailwindcss -i ./styles/input.css -o ./styles/output.css",
+    "build:css-watch": "bunx tailwindcss -i ./styles/input.css -o ./styles/output.css --watch",
     "build:css-node": "npx tailwindcss -i ./styles/input.css -o ./styles/output.css"
   }
 }
