@@ -36,7 +36,7 @@ jobs:
 
     - name: Run Server Silently
       run: |
-        make build-run-silent
+        make test
 
     - name: Send Request
       run: |
