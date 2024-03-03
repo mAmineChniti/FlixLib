@@ -10,7 +10,7 @@ import (
 
 const (
 	port      = ":3500"
-	stylesDir = "styles/"
+	stylesDir = "styles"
 )
 
 var (
@@ -24,6 +24,7 @@ func main() {
 	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
 		Format: "Request: Method=${method}, Uri=${uri}, Status=${status}\n",
 	}))
+	e.Use(middleware.CORS())
 
 	// Routes
 	e.GET("/", pageServer)
