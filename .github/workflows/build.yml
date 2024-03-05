@@ -37,11 +37,11 @@ jobs:
 
     - name: Lint
       run: |
-          golangci-lint run
+          golangci-lint run .
 
     - name: Vet
       run: |
-        go vet ./...
+        go vet .
 
     - name: Run Server Silently
       run: |
