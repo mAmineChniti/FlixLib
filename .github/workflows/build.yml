@@ -30,9 +30,18 @@ jobs:
       run: |
         go install github.com/cosmtrek/air@latest
 
+    - name: golangci-lint
+      uses: golangci/golangci-lint-action@v4
+      with:
+         version: latest
+
+    - name: Lint
+      run: |
+          golangci-lint run
+
     - name: Vet
       run: |
-        go vet .
+        go vet ./...
 
     - name: Run Server Silently
       run: |
