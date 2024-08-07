@@ -1,6 +1,10 @@
 package pages
+
+import "github.com/mAmineChniti/FlixLib/components"
+
 templ Index() {
-<components.Layout Title="FlixLib">
-	<components.Box />
-</components.Layout>
+title := "Home"
+@components.Layout(title){
+@components.Box()
+}
 }
