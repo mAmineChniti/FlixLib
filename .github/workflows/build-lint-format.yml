@@ -42,6 +42,7 @@ jobs:
         else
             echo "Error: API deployment failed. Received status code: $STATUS_CODE"
             exit 1
+        fi
 
   lint-and-format:
     runs-on: ubuntu-latest
