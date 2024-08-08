@@ -4,7 +4,7 @@ run-silent: generate-templ run-server-silent
 
 run-server-silent:
 	@echo "Running server"
-	air -c .air.toml > /dev/null
+	air -c .air.toml &
 
 generate-templ:
 	@echo "Generating templates"
