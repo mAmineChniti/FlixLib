@@ -3,14 +3,16 @@ FROM golang:1.22
 WORKDIR /flixlib
 
 RUN apt-get update && \
-    apt-get install -y ca-certificates make curl unzip && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get install -y make
+
+COPY go.mod go.sum ./
+RUN go mod download
 
 COPY . .
 
-RUN go install github.com/air-verse/air@latest && \
-    go mod download
+RUN go install github.com/air-verse/air@latest
+RUN go install github.com/a-h/templ/cmd/templ@latest
 
-EXPOSE 443
+EXPOSE 8080
 
 CMD ["make"]
