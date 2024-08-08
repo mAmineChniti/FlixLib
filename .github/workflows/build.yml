@@ -24,10 +24,10 @@ jobs:
 
     - name: Install dependencies
       run: |
-        go version
+        go mod download
 
     - name: Run Server
-      run: go run . &
+      run: make
 
     - name: Send Request
       run: |
