@@ -1,5 +1,11 @@
 all: generate-templ run-server
 
+run-silent: generate-templ run-server-silent
+
+run-server-silent:
+	@echo "Running server"
+	air -c .air.toml &
+
 generate-templ:
 	@echo "Generating templates"
 	templ generate
@@ -10,7 +16,7 @@ run-server:
 
 format:
 	@echo "Formatting go and templ"
-	go fmt ./...
+	gofmt -l -w .
 	templ fmt .
 
 clean:
