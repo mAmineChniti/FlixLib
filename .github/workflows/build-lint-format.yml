@@ -46,6 +46,7 @@ jobs:
 
   lint-and-format:
     runs-on: ubuntu-latest
+    needs: build
 
     steps:
       - name: Setup Checkout
@@ -60,9 +61,6 @@ jobs:
         uses: golangci/golangci-lint-action@v6
         with:
           version: v1.59
-
-      - name: Run golangci-lint
-        run: golangci-lint run ./...
 
       - name: Run gofmt
         run: |
