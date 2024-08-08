@@ -44,19 +44,6 @@ jobs:
             exit 1
           fi
 
-  lint-and-format:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-      - name: Setup Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: '1.22.6'
-
       - name: Setup golangci-lint
         uses: golangci/golangci-lint-action@v6
         with:
