@@ -51,7 +51,7 @@ jobs:
 
       - name: Run gofmt
         run: |
-          gofmt -l -w .
+          gofmt -l .
           if [ $? -eq 0 ]; then
             echo "Formatting completed successfully."
           else
