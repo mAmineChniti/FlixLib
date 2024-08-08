@@ -1,6 +1,6 @@
 all: generate-templ run-server
 
-run-silet: generate-templ run-server-silent
+run-silent: generate-templ run-server-silent
 
 run-server-silent:
 	@echo "Running server"
