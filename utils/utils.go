@@ -1,11 +1,11 @@
 package utils
 
 import (
-	"fmt"
 	"github.com/a-h/templ"
-	"net/http"
+	"github.com/labstack/echo/v4"
 )
 
-func Render(component templ.Component) {
-	component.Render(context.Background(), os.Stdout)
+func Render(c echo.Context, comp templ.Component) error {
+	c.Response().Header().Set(echo.HeaderContentType, echo.MIMETextHTML)
+	return comp.Render(c.Request().Context(), c.Response().Writer)
 }

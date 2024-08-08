@@ -31,7 +31,7 @@ jobs:
 
     - name: Send Request
       run: |
-        API_URL="http://127.0.0.1:3500/status"
+        API_URL="http://127.0.0.1:8080/status"
         STATUS_CODE=$(curl -o /dev/null -s -w "%{http_code}" $API_URL)
         if [ $STATUS_CODE -eq 200 ]; then
             echo "API is deployed and responding with status code 200 (OK)"
