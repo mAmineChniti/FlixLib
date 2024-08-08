@@ -16,7 +16,7 @@ run-server:
 
 format:
 	@echo "Formatting go and templ"
-	go fmt ./...
+	gofmt -l -w .
 	templ fmt .
 
 clean:
