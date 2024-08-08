@@ -31,7 +31,7 @@ jobs:
       run: go install github.com/air-verse/air@latest
 
     - name: Run Server
-      run: make
+      run: make run-silent
 
     - name: Send Request
       run: |

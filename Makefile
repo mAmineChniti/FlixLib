@@ -1,5 +1,11 @@
 all: generate-templ run-server
 
+run-silet: generate-templ run-server-silent
+
+run-server-silent:
+	@echo "Running server"
+	air -c .air.toml > /dev/null
+
 generate-templ:
 	@echo "Generating templates"
 	templ generate
