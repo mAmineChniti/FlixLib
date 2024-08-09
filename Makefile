@@ -1,14 +1,12 @@
 all: run-server
 
-run-silent: run-server-silent
-
 format-lint: format lint
 
 run-server:
 	@echo "Running server"
 	air -c .air.toml
 
-run-server-silent:
+run-silent:
 	@echo "Running server in silent mode"
 	air -c .air.toml &
 
