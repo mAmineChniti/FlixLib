@@ -36,7 +36,16 @@ func main() {
 		componentName := c.Param("componentName")
 		return utils.RenderComponent(c, componentName)
 	})
-
+	app.HTTPErrorHandler = func(err error, c echo.Context) {
+		if c.Response().Committed {
+			return
+		}
+		if he, ok := err.(*echo.HTTPError); ok && he.Code == http.StatusNotFound {
+			_ = utils.Render(c, pages.NotFound())
+		} else {
+			c.Echo().DefaultHTTPErrorHandler(err, c)
+		}
+	}
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
