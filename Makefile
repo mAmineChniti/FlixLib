@@ -1,6 +1,6 @@
-all: generate-templ run-server
+all: run-server
 
-run-silent: generate-templ run-server-silent
+run-silent: run-server-silent
 
 format-lint: format lint
 
