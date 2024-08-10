@@ -2,6 +2,10 @@ all: run-server
 
 format-lint: format lint
 
+build:
+	@echo "Building executable"
+	CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o FlixLib
+
 run-server:
 	@echo "Running server"
 	air -c .air.toml
@@ -27,3 +31,4 @@ clean:
 	@echo "Cleaning up"
 	rm -rf pages/*.go
 	rm -rf components/*.go
+	rm -rf FlixLib
