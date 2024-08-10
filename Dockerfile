@@ -1,4 +1,4 @@
-FROM golang:1.22 as builder
+FROM golang:1.22 AS builder
 
 WORKDIR /flixlib-build
 
@@ -18,8 +18,6 @@ RUN go install github.com/a-h/templ/cmd/templ@latest && \
 FROM scratch
 
 WORKDIR /app
-
-USER nobody:nogroup
 
 COPY --from=builder /flixlib-build/FlixLib /app/
 
