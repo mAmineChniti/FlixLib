@@ -3,7 +3,12 @@ package pages
 import "github.com/mAmineChniti/FlixLib/components"
 
 templ Index() {
-	@components.Layout("FlixLib") {
-		@components.Box()
+	@components.Layout("Home") {
+		@components.NavBar() {
+			<div class="flex space-x-8">
+				@components.Link("/movies", "Movies")
+				@components.Link("/series", "Series")
+			</div>
+		}
 	}
 }
