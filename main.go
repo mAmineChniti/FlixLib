@@ -32,10 +32,6 @@ func main() {
 	app.GET("/", func(c echo.Context) error {
 		return utils.Render(c, pages.Index())
 	})
-	app.GET("/component/:componentName", func(c echo.Context) error {
-		componentName := c.Param("componentName")
-		return utils.RenderComponent(c, componentName)
-	})
 	app.HTTPErrorHandler = func(err error, c echo.Context) {
 		if c.Response().Committed {
 			return
