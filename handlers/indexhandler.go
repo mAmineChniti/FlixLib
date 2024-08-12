@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"os"
 	"strconv"
 
 	"github.com/labstack/echo/v4"
@@ -14,8 +15,11 @@ import (
 	"github.com/mAmineChniti/FlixLib/utils"
 )
 
+var (
+	apiKey = os.Getenv("API_KEY")
+)
+
 const (
-	apiKey       = "f05b8bbdefmsh05487b889b99f78p11a902jsn8430951b4105"
 	apiHost      = "moviesdatabase.p.rapidapi.com"
 	itemsPerPage = 10
 )
