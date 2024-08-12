@@ -1,0 +1,22 @@
+package components
+
+import (
+"github.com/mAmineChniti/FlixLib/models"
+"strconv"
+)
+
+templ CardsRow(movies []models.MovieData, nextPage int) {
+<div id="cards-container" class="flex flex-col items-center mt-5 mb-5">
+	<div class="grid grid-cols-5 gap-4 mb-5">
+		for _, movie := range movies {
+		@Card(movie.Title, movie.ImageURL)
+		}
+	</div>
+	if nextPage > 0 {
+	<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" hx-get={"/load-more?page="+strconv.Itoa(nextPage)}
+				hx-target=" #cards-container" hx-swap="innerHTML">
+		Load More
+	</button>
+	}
+</div>
+}

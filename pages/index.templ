@@ -2,13 +2,14 @@ package pages
 
 import "github.com/mAmineChniti/FlixLib/components"
 
-templ Index() {
-	@components.Layout("Home") {
+templ Index(title string, cmp templ.Component) {
+	@components.Layout(title) {
 		@components.NavBar() {
 			<div class="flex space-x-8">
 				@components.Link("/movies", "Movies")
 				@components.Link("/series", "Series")
 			</div>
 		}
+		@cmp
 	}
 }

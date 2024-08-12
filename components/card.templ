@@ -1,0 +1,18 @@
+package components
+
+templ Card(title string, imgUrl string) {
+	<div class="bg-white shadow-md rounded-lg overflow-hidden w-[223px]">
+		if imgUrl == "" {
+			<img
+				class="w-[223px] h-[300px] object-cover object-center"
+				src="https://via.placeholder.com/223x300"
+				alt={ title }
+			/>
+		} else {
+			<img class="w-[223px] h-[300px] object-cover object-center" src={ imgUrl } alt={ title }/>
+		}
+		<div class="p-4 text-center">
+			<span class="text-md font-bold text-gray-900">{ title }</span>
+		</div>
+	</div>
+}

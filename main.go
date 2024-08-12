@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	"github.com/mAmineChniti/FlixLib/handlers"
 	"github.com/mAmineChniti/FlixLib/pages"
 	"github.com/mAmineChniti/FlixLib/utils"
 	"log"
@@ -30,7 +31,10 @@ func main() {
 		return c.String(http.StatusOK, "OK")
 	})
 	app.GET("/", func(c echo.Context) error {
-		return utils.Render(c, pages.Index())
+		return handlers.IndexHandler(c)
+	})
+	app.GET("/load-more", func(c echo.Context) error {
+		return handlers.LoadMoreHandler(c)
 	})
 	app.HTTPErrorHandler = func(err error, c echo.Context) {
 		if c.Response().Committed {
