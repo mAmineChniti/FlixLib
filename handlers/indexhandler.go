@@ -4,19 +4,17 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"os"
 	"strconv"
 
+	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 	"github.com/mAmineChniti/FlixLib/components"
 	"github.com/mAmineChniti/FlixLib/models"
 	"github.com/mAmineChniti/FlixLib/pages"
 	"github.com/mAmineChniti/FlixLib/utils"
-)
-
-var (
-	apiKey = os.Getenv("API_KEY")
 )
 
 const (
@@ -51,12 +49,16 @@ func LoadMoreHandler(c echo.Context) error {
 
 func fetchMoviesFromAPI(page int) ([]models.MovieData, int, error) {
 	url := "https://" + apiHost + "/titles?page=" + strconv.Itoa(page)
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatalf("Error loading .env file %v", err)
+	}
+	var apiKey = os.Getenv("API_KEY")
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return nil, 0, fmt.Errorf("error creating request: %v", err)
 	}
-
 	req.Header.Add("x-rapidapi-key", apiKey)
 	req.Header.Add("x-rapidapi-host", apiHost)
 
